@@ -1,5 +1,4 @@
-Assignment 3
-===================================
+# Simple-Volumetric-Renderer-NeRF-Point Sampling-
 
 **Credit**: This assignment is modified from [CMU 3D Vision course](https://learning3d.github.io/).
 **Credit**: This assignment is modified from [CMU 3D Vision course](https://learning3d.github.io/).
@@ -56,7 +55,7 @@ In order to perform rendering, you will implement the following routines:
 2. **Point sampling along rays**: you will fill out the `StratifiedSampler` class to generate sample points along each world space ray
 3. **Rendering**: you will fill out the `VolumeRenderer` class to *evaluate* a volume function at each sample point along a ray, and aggregate these evaluations to perform rendering.
 
-##  1.3. Ray sampling (10 points)
+##  1.3. Ray sampling
 
 Take a look at the `render_images` function in `main.py`. It loops through a set of cameras, generates rays for each pixel on a camera, and renders these rays using a `Model` instance.
 
@@ -86,9 +85,12 @@ python main.py --config-name=box
 
 Once you have implemented these methods, verify that your output matches the TA output by visualizing both `xy_grid` and `rays` with the `vis_grid` and `vis_rays` functions in the `render_images` function in `main.py`. **By default, the above command will crash and return an error**. However, it should reach your visualization code before it does. The outputs of grid/ray visualization should look like this:
 
-![Grid](ta_images/grid.png)    ![Rays](ta_images/rays.png)
+![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/44657d44-4210-436a-b886-ed44bdf5ec4d)             ![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/87684e7d-6ad7-4b18-97d2-58410c736196)
 
-##  1.4. Point sampling (10 points)
+
+    
+
+##  1.4. Point sampling
 
 ### Implementation
 
@@ -102,9 +104,10 @@ Your next task is to fill out `StratifiedSampler` in `sampler.py`. Implement the
 
 Once you have done this, use the `render_points` method in `render_functions.py` in order to visualize the point samples from the first camera. They should look like this:
 
-![Sample points](ta_images/sample_points.png)
 
-##  1.5. Volume rendering (30 points)
+![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/9012ba30-b657-49c9-953f-b6246f3af663)
+
+##  1.5. Volume rendering
 
 Finally, we can implement volume rendering! With the `configs/box.yaml` configuration, we provide you with an `SDFVolume` instance describing a box. You can check out the code for this function in `implicit.py`, which converts a signed distance function into a volume. If you want, you can even implement your own `SDFVolume` classes by creating new signed distance function class, and adding it to `sdf_dict` in `implicit.py`. Take a look at [this great web page](https://www.iquilezles.org/www/articles/distfunctions/distfunctions.htm) for formulas for some simple/complex SDFs.
 
@@ -142,12 +145,13 @@ Use weights, and aggregation function to render *color* and *depth* (stored in `
 
 By default, your results will be written out to `images/part_1.gif`. Provide a visualization of the depth in your write-up.
 
-![Spiral Rendering of Part 1](ta_images/part_1.gif) ![Spiral Rendering of Part 1](ta_images/depth.png)
+![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/b009232e-fc01-4d4f-9fb4-efc91b4b4c36)  ![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/92baff52-4ac5-4f64-b478-7d3d7337bfad)
+
 
 
 ##  2. Optimizing a basic implicit volume
 
-##  2.1. Random ray sampling (5 points)
+##  2.1. Random ray sampling
 
 Since you have now implemented a differentiable volume renderer, we can use it to optimize the parameters of a volume! We have provided a basic training loop in the `train` method in `main.py`.
 
@@ -157,7 +161,7 @@ Depending on how many sample points we take for each ray, volume rendering can c
 xy_grid = get_random_pixels_from_image(cfg.training.batch_size, image_size, camera) # TODO: implement in ray_utils.py
 ```
 
-##  2.2. Loss and training (5 points)
+##  2.2. Loss and training
 Replace the loss in `train`
 
 ```python
@@ -178,10 +182,11 @@ This will optimize the position and side lengths of a box, given a few ground tr
 
 The code renders a spiral sequence of the optimized volume in `images/part_2.gif`. Compare this gif to the one below, and attach it in your write-up:
 
-![Spiral Rendering of Part 2](ta_images/part_2.gif)
+![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/943c8989-ea03-467c-a9f7-62a8bf2ac746)
 
 
-##  3. Optimizing a Neural Radiance Field (NeRF) (30 points)
+
+##  3. Optimizing a Neural Radiance Field (NeRF)
 In this part, you will implement an implicit volume as a Multi-Layer Perceptron (MLP) in the `NeuraRadianceField` class in `implicit.py`. This MLP should map 3D position to volume density and color. Specifically:
 
 1. Your MLP should take in a `RayBundle` object in its forward method, and produce color and density for each sample point in the RayBundle.
@@ -209,5 +214,5 @@ This will create a NeRF with the `NeuralRadianceField` class in `implicit.py`, a
 
 Feel free to modify the experimental settings in `configs/nerf_lego.yaml` --- though the current settings should allow you to train a NeRF on low-resolution inputs in a reasonable amount of time. After training, a spiral rendering will be written to `images/part_3.gif`. Report your results. It should look something like this:
 
-![Spiral Rendering of Part 3](ta_images/part_3.gif)
+![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/2195671f-1da4-4102-b01f-878a1bf3d0db)
 
