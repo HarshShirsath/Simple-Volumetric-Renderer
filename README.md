@@ -85,9 +85,7 @@ python main.py --config-name=box
 
 Once you have implemented these methods, verify that your output matches the TA output by visualizing both `xy_grid` and `rays` with the `vis_grid` and `vis_rays` functions in the `render_images` function in `main.py`. **By default, the above command will crash and return an error**. However, it should reach your visualization code before it does. The outputs of grid/ray visualization should look like this:
 
-file:///home/harshal/CMSC848F/assignment3-main/assignment3_final/images/1.3-grid.png![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/44657d44-4210-436a-b886-ed44bdf5ec4d)
-
-file:///home/harshal/CMSC848F/assignment3-main/assignment3_final/images/1.3-rays.png![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/87684e7d-6ad7-4b18-97d2-58410c736196)
+![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/44657d44-4210-436a-b886-ed44bdf5ec4d)             ![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/87684e7d-6ad7-4b18-97d2-58410c736196)
 
 
     
