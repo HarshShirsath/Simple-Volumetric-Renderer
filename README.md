@@ -44,7 +44,9 @@ There are four major components of our differentiable volume rendering pipeline:
 `StratifiedSampler` provides a method for sampling multiple points along a ray traveling through the scene (also known as *raymarching*). Together, a sampler and a renderer describe a rendering pipeline. Like traditional graphics pipelines, this rendering procedure is independent of the scene and camera.
 
 The scene, sampler, and renderer are all packaged together under the `Model` class in `main.py`. In particular the `Model`'s forward method invokes a `VolumeRenderer` instance with a sampling strategy and volume as input.
-(https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/3c6574a2-217e-4447-85e0-1aa69c40d516)
+
+!file:///home/harshal/CMSC848F/assignment3_main/images/part_11.gif![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/2267e083-df92-41f2-ac7c-d0ffb2f471ba)
+
 
 Also, take a look at the `RayBundle` class in `ray_utils.py`, which provides a convenient wrapper around several inputs to the volume rendering procedure per ray.
 
