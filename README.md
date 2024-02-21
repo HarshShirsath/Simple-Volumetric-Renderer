@@ -44,6 +44,7 @@ There are four major components of our differentiable volume rendering pipeline:
 `StratifiedSampler` provides a method for sampling multiple points along a ray traveling through the scene (also known as *raymarching*). Together, a sampler and a renderer describe a rendering pipeline. Like traditional graphics pipelines, this rendering procedure is independent of the scene and camera.
 
 The scene, sampler, and renderer are all packaged together under the `Model` class in `main.py`. In particular the `Model`'s forward method invokes a `VolumeRenderer` instance with a sampling strategy and volume as input.
+(https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/3c6574a2-217e-4447-85e0-1aa69c40d516)
 
 Also, take a look at the `RayBundle` class in `ray_utils.py`, which provides a convenient wrapper around several inputs to the volume rendering procedure per ray.
 
@@ -182,8 +183,11 @@ This will optimize the position and side lengths of a box, given a few ground tr
 
 The code renders a spiral sequence of the optimized volume in `images/part_2.gif`. Compare this gif to the one below, and attach it in your write-up:
 
-![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/943c8989-ea03-467c-a9f7-62a8bf2ac746)
 
+After Training![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/a19add40-510a-4f56-bc0a-90c1ece58cab) ![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/230b8a89-7595-454e-9b26-cf2669cbaef4) ![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/500bc7e3-de8f-4f15-847d-2c2b8fa93963)  ![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/b9af5c2b-9801-4a88-ae51-4c8bc8a12f7e) ![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/23df928f-17e0-40ef-aeb4-16b7d804e1b0) 
+
+
+Before Training ![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/10a21434-8bf3-4743-8dbd-b5f65db29579) ![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/9dbe116a-193e-4136-81f2-ff33138834a9) ![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/d650f239-50f9-45fd-803a-2e34c86834f5) ![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/d1a6852c-d9f4-4dbe-8f1f-6da98b3e93f7) !
 
 
 ##  3. Optimizing a Neural Radiance Field (NeRF)
@@ -214,6 +218,7 @@ This will create a NeRF with the `NeuralRadianceField` class in `implicit.py`, a
 
 Feel free to modify the experimental settings in `configs/nerf_lego.yaml` --- though the current settings should allow you to train a NeRF on low-resolution inputs in a reasonable amount of time. After training, a spiral rendering will be written to `images/part_3.gif`. Report your results. It should look something like this:
 
-![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/2195671f-1da4-4102-b01f-878a1bf3d0db)
+![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/e6993eae-c66c-4681-bd74-c691eb38b4d0)
+
 
 
