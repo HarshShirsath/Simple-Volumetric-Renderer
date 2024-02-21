@@ -216,3 +216,4 @@ Feel free to modify the experimental settings in `configs/nerf_lego.yaml` --- th
 
 ![image](https://github.com/HarshShirsath/Simple-Volumetric-Renderer/assets/113379668/2195671f-1da4-4102-b01f-878a1bf3d0db)
 
+
